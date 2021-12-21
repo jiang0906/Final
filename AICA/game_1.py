@@ -99,10 +99,10 @@ class Game1:
                     run = False
             # 題目
                 if event.type == MOUSEBUTTONDOWN:
-                    if self.button.clicked(x, y) and n < 6:
+                    if self.button.clicked(x, y) and n < 5:
                         n += 1
                         run = True
-                    if n >= 6:
+                    if n >= 5:
                         clip = random.choice(self.video)
                         clip.preview()
                         clip.close
