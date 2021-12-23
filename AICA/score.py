@@ -32,7 +32,7 @@ class Score:
         clock = pygame.time.Clock()
         self.play_music()
         while run:
-            pygame.display.set_caption("火影結印大賽")
+            pygame.display.set_caption("火影結印大賽-排行榜")
             clock.tick(FPS)
             self.score_win.blit(RESULT_BG, (0, 0))
             x, y = pygame.mouse.get_pos()

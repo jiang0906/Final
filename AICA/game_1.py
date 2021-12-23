@@ -91,7 +91,7 @@ class Game1:
         n = 0
         t = 0    
         while run:  
-            pygame.display.set_caption("火影結印大賽")
+            pygame.display.set_caption("火影結印大賽-計時")
             clock.tick(FPS)        
             topic[n].draw(self.game_win)
             for event in pygame.event.get():

@@ -1,6 +1,7 @@
 import pygame
 import random
-from pygame import *
+import time
+from pygame import MOUSEBUTTONDOWN
 from moviepy.editor import *
 from settings import *
 
@@ -22,8 +23,11 @@ class Picture:
 # 限時模式
 class Game2:
     def __init__(self):
+        pygame.mixer.init()
+        pygame.display.init()
         self.game_win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
         self.button = Picture(WIN_WIDTH/2, WIN_HEIGHT/2, GAME_BG)
+        self.sound = pygame.mixer.Sound(os.path.join(SOUND_PATH,'GameMusic.mp3'))
         self.A = []
         for i in range(6):
             self.A.append(Picture(WIN_WIDTH/2, WIN_HEIGHT/2, A_IMAGE[i]))
@@ -77,13 +81,12 @@ class Game2:
         x, y = pygame.mouse.get_pos()
         self.play_music()
         topic = random.choice(self.topic)
-        n = 0
-        t = 0   
+        n = 0  
+        end = time.time() + 60  # 遊戲總共60秒
         while run:
-            pygame.display.set_caption("火影結印大賽")    
+            pygame.display.set_caption("火影結印大賽-限時")    
             clock.tick()     
-            topic[n].draw(self.game_win)
-            start = time.time()
+            topic[n].draw(self.game_win)         
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
@@ -98,10 +101,10 @@ class Game2:
                         clip.preview()
                         clip.close
                         n = 0
-                        t += 1
                         topic = random.choice(self.topic)
                         run = True
 
+            
                     
             # 題目
             # ...
@@ -111,6 +114,8 @@ class Game2:
 
             # 計時(倒數)
             # ...
+            if time.time() > end:
+                run = False
                     
 
             pygame.display.update()
