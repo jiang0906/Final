@@ -64,7 +64,7 @@ class StartMenu:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if self.start_btn.clicked(x, y):
                         story = Story()
-                        # story.run()
+                        story.run()
                         select = SelectMode()
                         select.run()
                         if 'game_1' in select.mode:
