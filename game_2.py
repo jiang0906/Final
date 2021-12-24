@@ -49,7 +49,7 @@ class Game2:
         topic = self.material_dict[random_index]['topic']
 
         n = 0
-        seconds = 10
+        seconds = 200
         milliseconds = 0
         while run:
             pygame.display.set_caption("火影結印大賽-限時")    

@@ -46,5 +46,28 @@ class Result2:
                     if self.result_btn.clicked(x, y):
                         run = False
 
+            # read file
+            path = 'score.txt'
+            f = open(path, 'r')  # 'w+' means read and write, can overwrite the file
+
+            scoreList = []
+            for line in f.readlines():
+                scoreList.append(int(line))
+                print(line)
+            f.close()
+
+            score = globals.score
+            scoreList.append(score)
+            repeat = False
+            for i in range(3):
+                if (scoreList[i] == scoreList[3]):
+                    repeat = True
+            if (not repeat):
+                scoreList.sort(reverse=True)
+                # print(scoreList)
+                f = open(path, 'w')
+                for line in range(3):
+                    f.write(str(scoreList[line]) + '\n')
+
             pygame.display.update()
         # pygame.quit()

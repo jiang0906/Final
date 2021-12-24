@@ -46,5 +46,27 @@ class Result1:
                     if self.result_btn.clicked(x, y):
                         run = False
 
+            # read file
+            path = 'time.txt'
+            f = open(path, 'r')  # 'w+' means read and write, can overwrite the file
+
+            timeList = []
+            for line in f.readlines():
+                timeList.append(int(line))
+                print(line)
+            f.close()
+
+            sec = globals.sec
+            timeList.append(sec)
+            repeat = False
+            for i in range(3):
+                if (timeList[i] == timeList[3]):
+                    repeat = True
+            if (not repeat):
+                timeList.sort()
+                f = open(path, 'w')
+                for line in range(3):
+                    f.write(str(timeList[line]) + '\n')
+
             pygame.display.update()
         # pygame.quit()
