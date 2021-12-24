@@ -5,10 +5,17 @@ from settings import *
 
 
 class Story:
+    def play_music(self):
+        pygame.mixer.init()
+        pygame.mixer.music.load(os.path.join(SOUND_PATH, 'MenuMusic.mp3'))
+        pygame.mixer.music.set_volume(0.5)
+        pygame.mixer.music.play(-1)
+
     def run(self):
         pygame.init()
         run = True
         clock = pygame.time.Clock()
+        self.play_music()
         while run:
             clock.tick(FPS)
             # 點擊視窗叉叉關閉
