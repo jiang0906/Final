@@ -17,7 +17,6 @@ class Score:
     def __init__(self):
         self.score_win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
         self.score_btn = Buttons(0, 0, WIN_WIDTH, WIN_HEIGHT)
-        self.sound = pygame.mixer.Sound(os.path.join(SOUND_PATH,'MenuMusic.mp3'))
 
 
     def play_music(self):
@@ -25,7 +24,6 @@ class Score:
         pygame.mixer.music.load(os.path.join(SOUND_PATH, 'MenuMusic.mp3'))
         pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1)
-        self.sound.set_volume(0.5)
 
     def run(self):
         run = True

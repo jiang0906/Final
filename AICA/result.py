@@ -16,14 +16,12 @@ class Result:
         pygame.mixer.init()
         self.result_win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
         self.result_btn = Buttons(0, 0, WIN_WIDTH, WIN_HEIGHT)
-        self.sound = pygame.mixer.Sound(os.path.join(SOUND_PATH,'MenuMusic.mp3'))
 
     def play_music(self):
         pygame.mixer.init()
         pygame.mixer.music.load(os.path.join(SOUND_PATH, 'MenuMusic.mp3'))
         pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1)
-        self.sound.set_volume(0.5)
 
     def run(self):
         run = True
@@ -32,6 +30,8 @@ class Result:
         while run:
             pygame.display.set_caption("火影結印大賽-得分")
             clock.tick(FPS)
+            # if 題數 == ??:
+            #    self.result_win.blit(, (0, 0))
             self.result_win.blit(RESULT_BG, (0, 0))
             x, y = pygame.mouse.get_pos()
             for event in pygame.event.get():

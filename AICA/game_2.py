@@ -27,7 +27,6 @@ class Game2:
         pygame.display.init()
         self.game_win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
         self.button = Picture(WIN_WIDTH/2, WIN_HEIGHT/2, GAME_BG)
-        self.sound = pygame.mixer.Sound(os.path.join(SOUND_PATH,'GameMusic.mp3'))
         self.A = []
         for i in range(6):
             self.A.append(Picture(WIN_WIDTH/2, WIN_HEIGHT/2, A_IMAGE[i]))
@@ -61,18 +60,23 @@ class Game2:
         self.topic = [self.A, self.B, self.C, self.D, self.E, 
                     self.F, self.G, self.H, self.I, self.J]
         self.A_video = VideoFileClip('AICA/video/A_video.mp4', audio=False)
-        self.G_video = VideoFileClip('AICA/video/G_video.mp4', audio=False)
+        self.B_video = VideoFileClip('AICA/video/B_video.mp4', audio=False)
         self.C_video = VideoFileClip('AICA/video/C_video.mp4', audio=False)
+        self.D_video = VideoFileClip('AICA/video/D_video.mp4', audio=False)
+        self.E_video = VideoFileClip('AICA/video/E_video.mp4', audio=False)
+        self.F_video = VideoFileClip('AICA/video/F_video.mp4', audio=False)
+        self.G_video = VideoFileClip('AICA/video/G_video.mp4', audio=False)    
         self.H_video = VideoFileClip('AICA/video/H_video.mp4', audio=False)
         self.I_video = VideoFileClip('AICA/video/I_video.mp4', audio=False)
-        self.video = [self.A_video, self.G_video, self.C_video, self.H_video, self.I_video]
+        self.J_video = VideoFileClip('AICA/video/J_video.mp4', audio=False)
+        self.video = [self.A_video, self.B_video, self.C_video, self.D_video, self.E_video, 
+                    self.F_video, self.G_video, self.H_video, self.I_video, self.J_video]
 
     def play_music(self):
         pygame.mixer.init()
         pygame.mixer.music.load(os.path.join(SOUND_PATH, 'GameMusic.mp3'))
         pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1)
-        self.sound.set_volume(0.5)
 
     def run(self):
         pygame.init()

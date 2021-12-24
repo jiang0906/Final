@@ -32,8 +32,6 @@ class StartMenu:
         # button
         self.start_btn = Buttons(0, 0, WIN_WIDTH, WIN_HEIGHT/2)
         self.score_btn = Buttons(0, WIN_HEIGHT/2, WIN_WIDTH, WIN_HEIGHT/2)
-        # music and sound
-        self.sound = pygame.mixer.Sound(os.path.join(SOUND_PATH,'MenuMusic.mp3'))
         # return mode
         self.mode = []
 
@@ -41,7 +39,6 @@ class StartMenu:
         pygame.mixer.music.load(os.path.join(SOUND_PATH, 'MenuMusic.mp3'))
         pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1)
-        self.sound.set_volume(0.5)
 
     def menu_run(self):
         pygame.init()
@@ -64,7 +61,7 @@ class StartMenu:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if self.start_btn.clicked(x, y):
                         story = Story()
-                        story.run()
+                        # story.run()
                         select = SelectMode()
                         select.run()
                         if 'game_1' in select.mode:
@@ -80,6 +77,7 @@ class StartMenu:
                     if self.score_btn.clicked(x, y):
                         score = Score()
                         score.run()
+                        run = True
                     
 
             pygame.display.update()
